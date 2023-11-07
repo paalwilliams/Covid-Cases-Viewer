@@ -1,22 +1,39 @@
 import { GermanyLatestDeathsDTOType, states } from 'src/types';
 import { LatestStateDeathsDTO } from './LatestStateDeathsDTO';
+import { ApiProperty } from '@nestjs/swagger';
 
 export class LatestGermanyDeathsDTO implements GermanyLatestDeathsDTOType {
+  @ApiProperty()
   public Bayern: LatestStateDeathsDTO;
+  @ApiProperty()
   public 'Berlin': LatestStateDeathsDTO;
+  @ApiProperty()
   public 'Brandenburg': LatestStateDeathsDTO;
+  @ApiProperty()
   public 'Bremen': LatestStateDeathsDTO;
+  @ApiProperty()
   public 'Hamburg': LatestStateDeathsDTO;
+  @ApiProperty()
   public 'Hessen': LatestStateDeathsDTO;
+  @ApiProperty()
   public 'Niedersachsen': LatestStateDeathsDTO;
+  @ApiProperty()
   public 'Saarland': LatestStateDeathsDTO;
+  @ApiProperty()
   public 'Sachsen': LatestStateDeathsDTO;
+  @ApiProperty()
   public 'Thüringen': LatestStateDeathsDTO;
+  @ApiProperty()
   public 'Nordrhein-Westfalen': LatestStateDeathsDTO;
+  @ApiProperty()
   public 'Schleswig-Holstein': LatestStateDeathsDTO;
+  @ApiProperty()
   public 'Rheinland-Pfalz': LatestStateDeathsDTO;
+  @ApiProperty()
   public 'Baden-Württemberg': LatestStateDeathsDTO;
+  @ApiProperty()
   public 'Sachsen-Anhalt': LatestStateDeathsDTO;
+  @ApiProperty()
   public 'Mecklenburg-Vorpommern': LatestStateDeathsDTO;
   constructor(data: Record<keyof typeof states, LatestStateDeathsDTO>) {
     this['Bayern'] = data.Bayern;

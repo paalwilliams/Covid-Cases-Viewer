@@ -1,22 +1,39 @@
 import { GermanyLatestCasesDTOType, states } from 'src/types';
 import { LatestStateCasesDTO } from './LatestStateCasesDTO';
+import { ApiProperty } from '@nestjs/swagger';
 
 export class LatestGermanyCasesDTO implements GermanyLatestCasesDTOType {
+  @ApiProperty()
   public Bayern: LatestStateCasesDTO;
+  @ApiProperty()
   public 'Berlin': LatestStateCasesDTO;
+  @ApiProperty()
   public 'Brandenburg': LatestStateCasesDTO;
+  @ApiProperty()
   public 'Bremen': LatestStateCasesDTO;
+  @ApiProperty()
   public 'Hamburg': LatestStateCasesDTO;
+  @ApiProperty()
   public 'Hessen': LatestStateCasesDTO;
+  @ApiProperty()
   public 'Niedersachsen': LatestStateCasesDTO;
+  @ApiProperty()
   public 'Saarland': LatestStateCasesDTO;
+  @ApiProperty()
   public 'Sachsen': LatestStateCasesDTO;
+  @ApiProperty()
   public 'Thüringen': LatestStateCasesDTO;
+  @ApiProperty()
   public 'Nordrhein-Westfalen': LatestStateCasesDTO;
+  @ApiProperty()
   public 'Schleswig-Holstein': LatestStateCasesDTO;
+  @ApiProperty()
   public 'Rheinland-Pfalz': LatestStateCasesDTO;
+  @ApiProperty()
   public 'Baden-Württemberg': LatestStateCasesDTO;
+  @ApiProperty()
   public 'Sachsen-Anhalt': LatestStateCasesDTO;
+  @ApiProperty()
   public 'Mecklenburg-Vorpommern': LatestStateCasesDTO;
 
   constructor(data: Record<keyof typeof states, LatestStateCasesDTO>) {

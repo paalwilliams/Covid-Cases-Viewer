@@ -1,9 +1,14 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { LatestStateCasesHistory } from 'src/types';
 
 export class LatestStateCasesDTO {
+  @ApiProperty()
   public stateName: string;
+  @ApiProperty()
   public abbreviation: string;
+  @ApiProperty()
   public history: LatestStateCasesHistory;
+  @ApiProperty()
   public dayRange: number;
 
   constructor({

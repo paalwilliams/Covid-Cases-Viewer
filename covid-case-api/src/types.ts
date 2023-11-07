@@ -42,7 +42,7 @@ export type RawCovidApiResponseType = {
   [key in keyof typeof states]: string;
 };
 
-export type HealtcheckResponseDTO = {
+export type HealthcheckResponseDTO = {
   uptime: number;
   version: string;
   ok: boolean;

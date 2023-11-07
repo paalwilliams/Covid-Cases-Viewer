@@ -18,6 +18,11 @@ const cases_service_1 = require("./cases.service");
 const StateParamValidationPipe_1 = require("../validation/StateParamValidationPipe");
 const DayRangeValidationPipe_1 = require("../validation/DayRangeValidationPipe");
 const CountryValidationPipe_1 = require("../validation/CountryValidationPipe");
+const swagger_1 = require("@nestjs/swagger");
+const GermanyCasesDTO_1 = require("../dto/GermanyCasesDTO");
+const StateCasesDTO_1 = require("../dto/StateCasesDTO");
+const LatestGermanyCasesDTO_1 = require("../dto/LatestGermanyCasesDTO");
+const LatestStateCasesDTO_1 = require("../dto/LatestStateCasesDTO");
 let CasesController = class CasesController {
     constructor(casesService) {
         this.casesService = casesService;
@@ -38,6 +43,11 @@ let CasesController = class CasesController {
 exports.CasesController = CasesController;
 __decorate([
     (0, common_1.Get)(),
+    (0, swagger_1.ApiOkResponse)({
+        description: 'All recorded cases for a given country',
+        type: GermanyCasesDTO_1.GermanyCasesDTO,
+        isArray: false,
+    }),
     __param(0, (0, common_1.Param)('country', CountryValidationPipe_1.CountryValidationPipe)),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
@@ -45,6 +55,11 @@ __decorate([
 ], CasesController.prototype, "getCasesForGermany", null);
 __decorate([
     (0, common_1.Get)(':state'),
+    (0, swagger_1.ApiOkResponse)({
+        description: 'All recorded cases for a given state',
+        type: StateCasesDTO_1.StateCasesDto,
+        isArray: false,
+    }),
     __param(0, (0, common_1.Param)('state', StateParamValidationPipe_1.StateParamValidationPipe)),
     __param(1, (0, common_1.Param)('country', CountryValidationPipe_1.CountryValidationPipe)),
     __metadata("design:type", Function),
@@ -53,6 +68,11 @@ __decorate([
 ], CasesController.prototype, "getByState", null);
 __decorate([
     (0, common_1.Get)('/latest/:dayRange'),
+    (0, swagger_1.ApiOkResponse)({
+        description: 'Latest recorded cases for a given state',
+        type: LatestGermanyCasesDTO_1.LatestGermanyCasesDTO,
+        isArray: false,
+    }),
     __param(0, (0, common_1.Param)('dayRange', DayRangeValidationPipe_1.DayRangeValidationPipe)),
     __param(1, (0, common_1.Param)('country', CountryValidationPipe_1.CountryValidationPipe)),
     __metadata("design:type", Function),
@@ -61,6 +81,11 @@ __decorate([
 ], CasesController.prototype, "getLatestCasesForGermanyDayRange", null);
 __decorate([
     (0, common_1.Get)('/latest/:state/:dayRange'),
+    (0, swagger_1.ApiOkResponse)({
+        description: 'Latest recorded cases for a given state and day range',
+        type: LatestStateCasesDTO_1.LatestStateCasesDTO,
+        isArray: false,
+    }),
     __param(0, (0, common_1.Param)('state', StateParamValidationPipe_1.StateParamValidationPipe)),
     __param(1, (0, common_1.Param)('dayRange', DayRangeValidationPipe_1.DayRangeValidationPipe)),
     __param(2, (0, common_1.Param)('country', CountryValidationPipe_1.CountryValidationPipe)),

@@ -1,10 +1,19 @@
+import { ApiProperty } from '@nestjs/swagger';
+
 export class StateDeathsDTO {
+  @ApiProperty()
   public stateName: string;
+  @ApiProperty()
   public abbreviation: string;
+  @ApiProperty()
   public population: string;
+  @ApiProperty()
   public deaths: number;
+  @ApiProperty()
   public deathsPerWeek: number;
+  @ApiProperty()
   public deathsPerCapita: number;
+  @ApiProperty()
   public deathsPer100k: number;
 
   constructor({ stateName, abbreviation, population, deaths, deathsPerWeek }) {

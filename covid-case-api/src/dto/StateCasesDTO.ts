@@ -1,17 +1,29 @@
+import { ApiProperty } from '@nestjs/swagger';
+
 export class StateCasesDto {
+  @ApiProperty()
   public stateName: string;
+  @ApiProperty()
   public abbreviation: string;
+  @ApiProperty()
   public population: string;
+  @ApiProperty()
   public cases: number;
+  @ApiProperty()
   public casesPerWeek: number;
+  @ApiProperty()
   public recovered: number;
+  @ApiProperty()
   public weekIncidence: number;
+  @ApiProperty()
   public casesPer100k: number;
+  @ApiProperty()
   public delta: {
     cases: number;
     recovered: number;
     weekIncidence: number;
   };
+  @ApiProperty()
   public hospitaliations: {
     cases7Days: number;
     incidence7Days: number;
