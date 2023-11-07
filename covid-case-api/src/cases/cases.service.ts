@@ -6,7 +6,7 @@ import { StateCasesDto } from 'src/dto/StateCasesDTO';
 import { QueryClient } from 'src/utils/QueryClient';
 import {
   casesResponseToStateCasesDTO,
-  germanyCasesResponseToGermanyCasesDTO,
+  casesResponseToGermanyCasesDTO,
   latestCasesResponseToLatestCasesForGermanyDTO,
   latestCasesResponseToLatestCasesForStateDTO,
 } from 'src/utils/dataMappers';
@@ -38,7 +38,7 @@ export class CasesService {
     try {
       const response = await this.queryClient.request(`/states`);
       const { data } = response.data;
-      const mappedResponse = germanyCasesResponseToGermanyCasesDTO(data);
+      const mappedResponse = casesResponseToGermanyCasesDTO(data);
       return mappedResponse;
     } catch (error) {
       throw new InternalServerErrorException();

@@ -38,7 +38,7 @@ let CasesService = class CasesService {
         try {
             const response = await this.queryClient.request(`/states`);
             const { data } = response.data;
-            const mappedResponse = (0, dataMappers_1.germanyCasesResponseToGermanyCasesDTO)(data);
+            const mappedResponse = (0, dataMappers_1.casesResponseToGermanyCasesDTO)(data);
             return mappedResponse;
         }
         catch (error) {

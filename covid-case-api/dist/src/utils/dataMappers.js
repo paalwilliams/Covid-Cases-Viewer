@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.germanyCasesResponseToGermanyDeathsDTO = exports.latestDeathsResponseToLatestDeathsForGermanyDTO = exports.latestDeathsResponseToLatestDeathsForStateDTO = exports.latestCasesResponseToLatestCasesForGermanyDTO = exports.latestCasesResponseToLatestCasesForStateDTO = exports.casesResponseToStateDeathsDTO = exports.germanyCasesResponseToGermanyCasesDTO = exports.casesResponseToStateCasesDTO = void 0;
+exports.latestDeathsResponseToLatestDeathsForGermanyDTO = exports.latestDeathsResponseToLatestDeathsForStateDTO = exports.latestCasesResponseToLatestCasesForGermanyDTO = exports.latestCasesResponseToLatestCasesForStateDTO = exports.casesResponseToGermanyDeathsDTO = exports.casesResponseToStateDeathsDTO = exports.casesResponseToGermanyCasesDTO = exports.casesResponseToStateCasesDTO = void 0;
 const GermanyCasesDTO_1 = require("../dto/GermanyCasesDTO");
 const GermanyDeathsDTO_1 = require("../dto/GermanyDeathsDTO");
 const LatestGermanyCasesDTO_1 = require("../dto/LatestGermanyCasesDTO");
@@ -26,7 +26,7 @@ const casesResponseToStateCasesDTO = ({ abbreviation, cases, recovered, casesPer
     return response;
 };
 exports.casesResponseToStateCasesDTO = casesResponseToStateCasesDTO;
-const germanyCasesResponseToGermanyCasesDTO = (rawData) => {
+const casesResponseToGermanyCasesDTO = (rawData) => {
     const response = new GermanyCasesDTO_1.GermanyCasesDTO({
         Bayern: new StateCasesDTO_1.StateCasesDto({ ...rawData[types_1.states.Bayern] }),
         Berlin: new StateCasesDTO_1.StateCasesDto({ ...rawData[types_1.states.Berlin] }),
@@ -59,7 +59,7 @@ const germanyCasesResponseToGermanyCasesDTO = (rawData) => {
     });
     return response;
 };
-exports.germanyCasesResponseToGermanyCasesDTO = germanyCasesResponseToGermanyCasesDTO;
+exports.casesResponseToGermanyCasesDTO = casesResponseToGermanyCasesDTO;
 const casesResponseToStateDeathsDTO = ({ abbreviation, deaths, deathsPerWeek, population, stateName, }) => {
     const response = new StateDeathsDTO_1.StateDeathsDTO({
         abbreviation,
@@ -71,6 +71,42 @@ const casesResponseToStateDeathsDTO = ({ abbreviation, deaths, deathsPerWeek, po
     return response;
 };
 exports.casesResponseToStateDeathsDTO = casesResponseToStateDeathsDTO;
+const casesResponseToGermanyDeathsDTO = (rawData) => {
+    const response = new GermanyDeathsDTO_1.GermanyDeathsDTO({
+        Bayern: new StateDeathsDTO_1.StateDeathsDTO({ ...rawData[types_1.states.Bayern] }),
+        Berlin: new StateDeathsDTO_1.StateDeathsDTO({ ...rawData[types_1.states.Berlin] }),
+        Brandenburg: new StateDeathsDTO_1.StateDeathsDTO({
+            ...rawData[types_1.states.Brandenburg],
+        }),
+        Bremen: new StateDeathsDTO_1.StateDeathsDTO({ ...rawData[types_1.states.Bremen] }),
+        Hamburg: new StateDeathsDTO_1.StateDeathsDTO({ ...rawData[types_1.states.Hamburg] }),
+        Hessen: new StateDeathsDTO_1.StateDeathsDTO({ ...rawData[types_1.states.Hessen] }),
+        Niedersachsen: new StateDeathsDTO_1.StateDeathsDTO({ ...rawData[types_1.states.Niedersachsen] }),
+        Saarland: new StateDeathsDTO_1.StateDeathsDTO({ ...rawData[types_1.states.Saarland] }),
+        Sachsen: new StateDeathsDTO_1.StateDeathsDTO({ ...rawData[types_1.states.Sachsen] }),
+        Thüringen: new StateDeathsDTO_1.StateDeathsDTO({ ...rawData[types_1.states.Thüringen] }),
+        'Nordrhein-Westfalen': new StateDeathsDTO_1.StateDeathsDTO({
+            ...rawData[types_1.states['Nordrhein-Westfalen']],
+        }),
+        'Schleswig-Holstein': new StateDeathsDTO_1.StateDeathsDTO({
+            ...rawData[types_1.states['Schleswig-Holstein']],
+        }),
+        'Rheinland-Pfalz': new StateDeathsDTO_1.StateDeathsDTO({
+            ...rawData[types_1.states['Rheinland-Pfalz']],
+        }),
+        'Baden-Württemberg': new StateDeathsDTO_1.StateDeathsDTO({
+            ...rawData[types_1.states['Baden-Württemberg']],
+        }),
+        'Sachsen-Anhalt': new StateDeathsDTO_1.StateDeathsDTO({
+            ...rawData[types_1.states['Sachsen-Anhalt']],
+        }),
+        'Mecklenburg-Vorpommern': new StateDeathsDTO_1.StateDeathsDTO({
+            ...rawData[types_1.states['Mecklenburg-Vorpommern']],
+        }),
+    });
+    return response;
+};
+exports.casesResponseToGermanyDeathsDTO = casesResponseToGermanyDeathsDTO;
 const latestCasesResponseToLatestCasesForStateDTO = ({ stateName, abbreviation, history, dayRange, }) => {
     const response = new LatestStateCasesDTO_1.LatestStateCasesDTO({
         abbreviation,
@@ -163,40 +199,4 @@ const latestDeathsResponseToLatestDeathsForGermanyDTO = (rawData) => {
     return response;
 };
 exports.latestDeathsResponseToLatestDeathsForGermanyDTO = latestDeathsResponseToLatestDeathsForGermanyDTO;
-const germanyCasesResponseToGermanyDeathsDTO = (rawData) => {
-    const response = new GermanyDeathsDTO_1.GermanyDeathsDTO({
-        Bayern: new StateDeathsDTO_1.StateDeathsDTO({ ...rawData[types_1.states.Bayern] }),
-        Berlin: new StateDeathsDTO_1.StateDeathsDTO({ ...rawData[types_1.states.Berlin] }),
-        Brandenburg: new StateDeathsDTO_1.StateDeathsDTO({
-            ...rawData[types_1.states.Brandenburg],
-        }),
-        Bremen: new StateDeathsDTO_1.StateDeathsDTO({ ...rawData[types_1.states.Bremen] }),
-        Hamburg: new StateDeathsDTO_1.StateDeathsDTO({ ...rawData[types_1.states.Hamburg] }),
-        Hessen: new StateDeathsDTO_1.StateDeathsDTO({ ...rawData[types_1.states.Hessen] }),
-        Niedersachsen: new StateDeathsDTO_1.StateDeathsDTO({ ...rawData[types_1.states.Niedersachsen] }),
-        Saarland: new StateDeathsDTO_1.StateDeathsDTO({ ...rawData[types_1.states.Saarland] }),
-        Sachsen: new StateDeathsDTO_1.StateDeathsDTO({ ...rawData[types_1.states.Sachsen] }),
-        Thüringen: new StateDeathsDTO_1.StateDeathsDTO({ ...rawData[types_1.states.Thüringen] }),
-        'Nordrhein-Westfalen': new StateDeathsDTO_1.StateDeathsDTO({
-            ...rawData[types_1.states['Nordrhein-Westfalen']],
-        }),
-        'Schleswig-Holstein': new StateDeathsDTO_1.StateDeathsDTO({
-            ...rawData[types_1.states['Schleswig-Holstein']],
-        }),
-        'Rheinland-Pfalz': new StateDeathsDTO_1.StateDeathsDTO({
-            ...rawData[types_1.states['Rheinland-Pfalz']],
-        }),
-        'Baden-Württemberg': new StateDeathsDTO_1.StateDeathsDTO({
-            ...rawData[types_1.states['Baden-Württemberg']],
-        }),
-        'Sachsen-Anhalt': new StateDeathsDTO_1.StateDeathsDTO({
-            ...rawData[types_1.states['Sachsen-Anhalt']],
-        }),
-        'Mecklenburg-Vorpommern': new StateDeathsDTO_1.StateDeathsDTO({
-            ...rawData[types_1.states['Mecklenburg-Vorpommern']],
-        }),
-    });
-    return response;
-};
-exports.germanyCasesResponseToGermanyDeathsDTO = germanyCasesResponseToGermanyDeathsDTO;
 //# sourceMappingURL=dataMappers.js.map

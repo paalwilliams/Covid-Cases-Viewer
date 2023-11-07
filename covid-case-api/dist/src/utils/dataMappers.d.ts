@@ -19,7 +19,7 @@ export declare const casesResponseToStateCasesDTO: ({ abbreviation, cases, recov
     stateName: string;
     weekIncidence: string;
 }) => StateCasesDto;
-export declare const germanyCasesResponseToGermanyCasesDTO: (rawData: RawCovidApiResponseType) => GermanyCasesDTO;
+export declare const casesResponseToGermanyCasesDTO: (rawData: RawCovidApiResponseType) => GermanyCasesDTO;
 export declare const casesResponseToStateDeathsDTO: ({ abbreviation, deaths, deathsPerWeek, population, stateName, }: {
     abbreviation: string;
     deaths: number;
@@ -27,6 +27,7 @@ export declare const casesResponseToStateDeathsDTO: ({ abbreviation, deaths, dea
     population: number;
     stateName: string;
 }) => StateDeathsDTO;
+export declare const casesResponseToGermanyDeathsDTO: (rawData: RawCovidApiResponseType) => GermanyDeathsDTO;
 export declare const latestCasesResponseToLatestCasesForStateDTO: ({ stateName, abbreviation, history, dayRange, }: {
     stateName: string;
     abbreviation: string;
@@ -41,4 +42,3 @@ export declare const latestDeathsResponseToLatestDeathsForStateDTO: ({ stateName
     dayRange: number;
 }) => LatestStateDeathsDTO;
 export declare const latestDeathsResponseToLatestDeathsForGermanyDTO: (rawData: RawCovidApiResponseType) => LatestGermanyDeathsDTO;
-export declare const germanyCasesResponseToGermanyDeathsDTO: (rawData: RawCovidApiResponseType) => GermanyDeathsDTO;
