@@ -57,8 +57,10 @@ export class CasesService {
       dayRange: dayRange,
     };
 
-    const mappedResponse =
-      latestCasesResponseToLatestCasesForGermanyDTO(dataForMapper);
+    const mappedResponse = latestCasesResponseToLatestCasesForGermanyDTO(
+      dataForMapper,
+      dayRange,
+    );
     return mappedResponse;
   }
 

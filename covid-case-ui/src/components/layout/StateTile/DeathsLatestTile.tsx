@@ -9,7 +9,14 @@ const DeathsLatestTile = ({
   return (
     <div>
       <p>State: {data["Baden-Württemberg"].abbreviation}</p>
-      <p>Death Total: {data["Baden-Württemberg"].history}</p>
+      {data["Baden-Württemberg"].history.map((data) => {
+        return (
+          <>
+            <p>{data.date}</p>
+            <p>{data.deaths}</p>
+          </>
+        );
+      })}
       <p>Population: {data["Baden-Württemberg"].dayRange}</p>
     </div>
   );

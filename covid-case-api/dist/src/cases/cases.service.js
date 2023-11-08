@@ -52,7 +52,7 @@ let CasesService = class CasesService {
             ...data,
             dayRange: dayRange,
         };
-        const mappedResponse = (0, dataMappers_1.latestCasesResponseToLatestCasesForGermanyDTO)(dataForMapper);
+        const mappedResponse = (0, dataMappers_1.latestCasesResponseToLatestCasesForGermanyDTO)(dataForMapper, dayRange);
         return mappedResponse;
     }
     async getLatestCasesForState(state, dayRange) {

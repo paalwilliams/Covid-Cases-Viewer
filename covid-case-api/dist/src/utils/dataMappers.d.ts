@@ -34,7 +34,7 @@ export declare const latestCasesResponseToLatestCasesForStateDTO: ({ stateName, 
     history: LatestStateCasesHistory;
     dayRange: number;
 }) => LatestStateCasesDTO;
-export declare const latestCasesResponseToLatestCasesForGermanyDTO: (rawData: RawCovidApiResponseType) => LatestGermanyCasesDTO;
+export declare const latestCasesResponseToLatestCasesForGermanyDTO: (rawData: RawCovidApiResponseType, dayRange: number) => LatestGermanyCasesDTO;
 export declare const latestDeathsResponseToLatestDeathsForStateDTO: ({ stateName, abbreviation, history, dayRange, }: {
     stateName: string;
     abbreviation: string;

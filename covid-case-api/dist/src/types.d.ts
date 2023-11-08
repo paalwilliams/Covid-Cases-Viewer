@@ -40,11 +40,11 @@ export type HealthcheckResponseDTO = {
     version: string;
     ok: boolean;
 };
-export type LatestStateCasesHistory = {
+export declare class LatestStateCasesHistory {
     cases: number;
     date: string;
-}[];
-export type LatestStateDeathsHistory = {
+}
+export declare class LatestStateDeathsHistory {
     deaths: number;
     date: string;
-}[];
+}

@@ -133,6 +133,7 @@ export const latestCasesResponseToLatestCasesForStateDTO = ({
 
 export const latestCasesResponseToLatestCasesForGermanyDTO = (
   rawData: RawCovidApiResponseType,
+  dayRange: number,
 ): LatestGermanyCasesDTO => {
   const mapped: Record<keyof typeof states, LatestStateCasesDTO> = {} as Record<
     keyof typeof states,
@@ -143,8 +144,11 @@ export const latestCasesResponseToLatestCasesForGermanyDTO = (
     mapped[state] = new LatestStateCasesDTO({
       ...rawData[states[state]],
       stateName: state,
+      abbreviation: states[state],
+      dayRange: dayRange,
     });
   }
+
   const response = new LatestGermanyCasesDTO(mapped);
   return response;
 };

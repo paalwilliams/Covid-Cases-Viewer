@@ -1,4 +1,4 @@
-import { ApiResponse } from '@nestjs/swagger';
+import { ApiProperty, ApiResponse } from '@nestjs/swagger';
 import { LatestStateCasesDTO } from './dto/LatestStateCasesDTO';
 import { LatestStateDeathsDTO } from './dto/LatestStateDeathsDTO';
 import { StateCasesDto } from './dto/StateCasesDTO';
@@ -49,6 +49,16 @@ export type HealthcheckResponseDTO = {
   ok: boolean;
 };
 
-export type LatestStateCasesHistory = { cases: number; date: string }[];
+export class LatestStateCasesHistory {
+  @ApiProperty()
+  public cases: number;
+  @ApiProperty()
+  public date: string;
+}
 
-export type LatestStateDeathsHistory = { deaths: number; date: string }[];
+export class LatestStateDeathsHistory {
+  @ApiProperty()
+  public deaths: number;
+  @ApiProperty()
+  date: string;
+}

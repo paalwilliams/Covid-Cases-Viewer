@@ -43,6 +43,7 @@ function App() {
           element: (
             <StateCases shouldShowLatest={shouldShowLatest} range={range} />
           ),
+          errorElement: <p>error</p>,
         },
         {
           path: "/deaths/:state",

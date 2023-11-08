@@ -4,6 +4,7 @@ import CaseStateTile from "./CaseStateTile";
 import DeathStateTile from "./DeathStateTile";
 import styles from "./StateTile.module.css";
 import LatestStateCasesTile from "./LatestStateCasesTile";
+import LatestStateDeathsTile from "./LatestStateDeathsTile";
 
 const StateTile = ({
   data,
@@ -48,7 +49,7 @@ const StateTile = ({
         ) : data.variant === "state-deaths" ? (
           <DeathStateTile data={data.stateData} />
         ) : data.variant === "state-deaths-latest" ? (
-          <p>state deaths latest</p>
+          <LatestStateDeathsTile data={data.stateData} />
         ) : data.variant === "state-cases-latest" ? (
           <LatestStateCasesTile data={data.stateData} />
         ) : (

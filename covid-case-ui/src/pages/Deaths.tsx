@@ -42,35 +42,31 @@ const Deaths = ({
   return (
     <>
       <Outlet />
-      {!shouldShowLatest ? (
-        <div className={styles.gridContainer}>
-          {data
-            ? Object.entries(data).map(([stateName, stateData]) => {
-                return (
-                  <StateTile
-                    path="deaths"
-                    key={stateName}
-                    stateName={stateName}
-                    data={{ variant: "deaths", stateData }}
-                  />
-                );
-              })
-            : latest
-            ? Object.entries(latest).map(([stateName, stateData]) => {
-                return (
-                  <StateTile
-                    path="deaths"
-                    key={stateName}
-                    stateName={stateName}
-                    data={{ variant: "deaths-latest", stateData }}
-                  />
-                );
-              })
-            : ""}
-        </div>
-      ) : (
-        ""
-      )}
+      <div className={styles.gridContainer}>
+        {!shouldShowLatest && data
+          ? Object.entries(data).map(([stateName, stateData]) => {
+              return (
+                <StateTile
+                  path="deaths"
+                  key={stateName}
+                  stateName={stateName}
+                  data={{ variant: "deaths", stateData }}
+                />
+              );
+            })
+          : latest
+          ? Object.entries(latest).map(([stateName, stateData]) => {
+              return (
+                <StateTile
+                  path="deaths"
+                  key={stateName}
+                  stateName={stateName}
+                  data={{ variant: "state-deaths-latest", stateData }}
+                />
+              );
+            })
+          : ""}
+      </div>
     </>
   );
 };

@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LatestStateCasesDTO = void 0;
 const swagger_1 = require("@nestjs/swagger");
+const types_1 = require("../types");
 class LatestStateCasesDTO {
     constructor({ stateName, abbreviation, history, dayRange, }) {
         this.stateName = stateName;
@@ -29,8 +30,10 @@ __decorate([
     __metadata("design:type", String)
 ], LatestStateCasesDTO.prototype, "abbreviation", void 0);
 __decorate([
-    (0, swagger_1.ApiProperty)(),
-    __metadata("design:type", Array)
+    (0, swagger_1.ApiProperty)({
+        isArray: true,
+    }),
+    __metadata("design:type", types_1.LatestStateCasesHistory)
 ], LatestStateCasesDTO.prototype, "history", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),

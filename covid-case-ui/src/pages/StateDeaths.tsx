@@ -29,7 +29,7 @@ const StateDeaths = ({
   });
 
   useQuery({
-    queryKey: [`${state}-deaths`],
+    queryKey: [`latest-${state}-deaths-${range}`],
     queryFn: async () => {
       const axios = createAxiosClient();
       const { data } = await axios.get<

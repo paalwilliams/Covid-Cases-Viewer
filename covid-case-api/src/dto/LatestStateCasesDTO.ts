@@ -6,7 +6,9 @@ export class LatestStateCasesDTO {
   public stateName: string;
   @ApiProperty()
   public abbreviation: string;
-  @ApiProperty()
+  @ApiProperty({
+    isArray: true,
+  })
   public history: LatestStateCasesHistory;
   @ApiProperty()
   public dayRange: number;

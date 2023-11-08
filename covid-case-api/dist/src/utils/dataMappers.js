@@ -71,12 +71,14 @@ const latestCasesResponseToLatestCasesForStateDTO = ({ stateName, abbreviation, 
     return response;
 };
 exports.latestCasesResponseToLatestCasesForStateDTO = latestCasesResponseToLatestCasesForStateDTO;
-const latestCasesResponseToLatestCasesForGermanyDTO = (rawData) => {
+const latestCasesResponseToLatestCasesForGermanyDTO = (rawData, dayRange) => {
     const mapped = {};
     for (const [state] of Object.entries(types_1.states)) {
         mapped[state] = new LatestStateCasesDTO_1.LatestStateCasesDTO({
             ...rawData[types_1.states[state]],
             stateName: state,
+            abbreviation: types_1.states[state],
+            dayRange: dayRange,
         });
     }
     const response = new LatestGermanyCasesDTO_1.LatestGermanyCasesDTO(mapped);

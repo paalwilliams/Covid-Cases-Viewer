@@ -65,10 +65,14 @@ export interface components {
       "Sachsen-Anhalt": components["schemas"]["StateDeathsDTO"];
       "Mecklenburg-Vorpommern": components["schemas"]["StateDeathsDTO"];
     };
+    LatestStateDeathsHistory: {
+      deaths: number;
+      date: string;
+    };
     LatestStateDeathsDTO: {
       stateName: string;
       abbreviation: string;
-      history: string[];
+      history: components["schemas"]["LatestStateDeathsHistory"][];
       dayRange: number;
     };
     LatestGermanyDeathsDTO: {
