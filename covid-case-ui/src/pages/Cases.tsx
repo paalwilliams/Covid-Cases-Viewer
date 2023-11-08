@@ -4,14 +4,17 @@ import { useQuery } from "react-query";
 import { components } from "../generated/schema";
 import StateTile from "../components/layout/StateTile/StateTile";
 import styles from "./Deaths.module.css";
-import Toolbar from "../components/layout/Toolbar/Toolbar";
 
-const Cases = () => {
+const Cases = ({
+  shouldShowLatest,
+  range,
+}: {
+  shouldShowLatest: boolean;
+  range: number;
+}) => {
   let [data, setData] = useState<components["schemas"]["GermanyCasesDTO"]>();
-  let [, setLatest] =
+  let [latest, setLatest] =
     useState<components["schemas"]["LatestGermanyCasesDTO"]>();
-  let [shouldShowLatest, setShouldShowLatest] = useState<boolean>(false);
-  let [range, setRange] = useState<number>(1);
 
   useQuery({
     queryKey: ["cases"],
@@ -37,34 +40,34 @@ const Cases = () => {
 
   return (
     <>
-      <Toolbar
-        range={range}
-        shouldShowLatest={shouldShowLatest}
-        onSliderChange={(e) => {
-          const value = parseInt(e.target.value);
-          setRange(value);
-        }}
-        onCheckboxChange={() => setShouldShowLatest(!shouldShowLatest)}
-      />
-      {!shouldShowLatest ? (
-        <>
-          <div className={styles.gridContainer}>
-            {data
-              ? Object.entries(data).map(([stateName, stateData]) => {
-                  return (
-                    <StateTile
-                      key={stateName}
-                      stateName={stateName}
-                      data={{ variant: "cases", stateData: stateData }}
-                    />
-                  );
-                })
-              : ""}
-          </div>
-        </>
-      ) : (
-        ""
-      )}
+      <div className={styles.gridContainer}>
+        {!shouldShowLatest && data
+          ? Object.entries(data).map(([stateName, stateData]) => {
+              return (
+                <StateTile
+                  path="cases"
+                  key={stateName}
+                  stateName={stateName}
+                  data={{ variant: "cases", stateData: stateData }}
+                />
+              );
+            })
+          : latest
+          ? Object.entries(latest).map(([stateName, stateData]) => {
+              return (
+                <StateTile
+                  path="cases"
+                  key={stateName}
+                  stateName={stateName}
+                  data={{
+                    variant: "state-cases-latest",
+                    stateData: stateData,
+                  }}
+                />
+              );
+            })
+          : ""}
+      </div>
     </>
   );
 };

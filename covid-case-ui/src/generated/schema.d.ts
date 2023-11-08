@@ -119,10 +119,14 @@ export interface components {
       "Sachsen-Anhalt": components["schemas"]["StateCasesDto"];
       "Mecklenburg-Vorpommern": components["schemas"]["StateCasesDto"];
     };
+    LatestStateCasesHistory: {
+      cases: number;
+      date: string;
+    };
     LatestStateCasesDTO: {
       stateName: string;
       abbreviation: string;
-      history: string[];
+      history: components["schemas"]["LatestStateCasesHistory"][];
       dayRange: number;
     };
     LatestGermanyCasesDTO: {
