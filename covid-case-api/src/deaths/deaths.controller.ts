@@ -17,7 +17,6 @@ export class DeathsController {
   @ApiOkResponse({
     description: 'All recorded deaths for a given country',
     type: GermanyDeathsDTO,
-    isArray: false,
   })
   async getDeathsForCountry(
     @Param('country', CountryValidationPipe) _country: string,
@@ -29,7 +28,6 @@ export class DeathsController {
   @ApiOkResponse({
     description: 'All recorded deaths by a given state and country',
     type: StateDeathsDTO,
-    isArray: false,
   })
   public getDeathsByState(
     @Param('country', CountryValidationPipe) _country: string,
@@ -42,7 +40,6 @@ export class DeathsController {
   @ApiOkResponse({
     description: 'Latest deaths for a given country for a given number of days',
     type: LatestGermanyDeathsDTO,
-    isArray: false,
   })
   async getLatestCasesForGermanyDayRange(
     @Param('country', CountryValidationPipe) _country: string,
@@ -56,7 +53,6 @@ export class DeathsController {
     description:
       'Records for deaths by state and country for a given number of days',
     type: LatestStateDeathsDTO,
-    isArray: false,
   })
   async getLatestCasesForStateDayRange(
     @Param('country', CountryValidationPipe) _country: string,

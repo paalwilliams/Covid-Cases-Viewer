@@ -12,13 +12,13 @@ export declare class StateCasesDto {
         recovered: number;
         weekIncidence: number;
     };
-    hospitaliations: {
+    hospitalization: {
         cases7Days: number;
         incidence7Days: number;
         date: string;
         lastUpdate: string;
     };
-    constructor({ stateName, abbreviation, population, cases, casesPerWeek, weekIncidence, casesPer100k, delta, recovered, hospitaliations, }: {
+    constructor({ stateName, abbreviation, population, cases, casesPerWeek, weekIncidence, casesPer100k, delta, recovered, hospitalization, }: {
         stateName: any;
         abbreviation: any;
         population: any;
@@ -28,6 +28,6 @@ export declare class StateCasesDto {
         casesPer100k: any;
         delta: any;
         recovered: any;
-        hospitaliations: any;
+        hospitalization: any;
     });
 }

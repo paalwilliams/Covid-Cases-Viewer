@@ -24,7 +24,7 @@ export class StateCasesDto {
     weekIncidence: number;
   };
   @ApiProperty()
-  public hospitaliations: {
+  public hospitalization: {
     cases7Days: number;
     incidence7Days: number;
     date: string;
@@ -41,7 +41,7 @@ export class StateCasesDto {
     casesPer100k,
     delta,
     recovered,
-    hospitaliations,
+    hospitalization,
   }) {
     this.stateName = stateName;
     this.abbreviation = abbreviation;
@@ -56,6 +56,6 @@ export class StateCasesDto {
       cases: delta.cases,
       weekIncidence: delta.weekIncidence,
     };
-    this.hospitaliations = hospitaliations;
+    this.hospitalization = hospitalization;
   }
 }

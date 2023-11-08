@@ -20,7 +20,7 @@ export const casesResponseToStateCasesDTO = ({
   casesPer100k,
   casesPerWeek,
   delta,
-  hospitaliations,
+  hospitalization,
   population,
   stateName,
   weekIncidence,
@@ -31,7 +31,7 @@ export const casesResponseToStateCasesDTO = ({
   casesPer100k: string;
   casesPerWeek: string;
   delta: string;
-  hospitaliations: string;
+  hospitalization: string;
   population: string;
   stateName: string;
   weekIncidence: string;
@@ -43,7 +43,7 @@ export const casesResponseToStateCasesDTO = ({
     casesPer100k,
     casesPerWeek,
     delta,
-    hospitaliations,
+    hospitalization,
     population,
     stateName,
     weekIncidence,
@@ -55,37 +55,18 @@ export const casesResponseToStateCasesDTO = ({
 export const casesResponseToGermanyCasesDTO = (
   rawData: RawCovidApiResponseType,
 ): GermanyCasesDTO => {
-  const response = new GermanyCasesDTO({
-    Bayern: new StateCasesDto({ ...rawData[states.Bayern] }),
-    Berlin: new StateCasesDto({ ...rawData[states.Berlin] }),
-    Brandenburg: new StateCasesDto({ ...rawData[states.Brandenburg] }),
-    Bremen: new StateCasesDto({ ...rawData[states.Bremen] }),
-    Hamburg: new StateCasesDto({ ...rawData[states.Hamburg] }),
-    Hessen: new StateCasesDto({ ...rawData[states.Hessen] }),
-    Niedersachsen: new StateCasesDto({ ...rawData[states.Niedersachsen] }),
-    Saarland: new StateCasesDto({ ...rawData[states.Saarland] }),
-    Sachsen: new StateCasesDto({ ...rawData[states.Sachsen] }),
-    Thüringen: new StateCasesDto({ ...rawData[states.Thüringen] }),
-    'Nordrhein-Westfalen': new StateCasesDto({
-      ...rawData[states['Nordrhein-Westfalen']],
-    }),
-    'Schleswig-Holstein': new StateCasesDto({
-      ...rawData[states['Schleswig-Holstein']],
-    }),
-    'Rheinland-Pfalz': new StateCasesDto({
-      ...rawData[states['Rheinland-Pfalz']],
-    }),
-    'Baden-Württemberg': new StateCasesDto({
-      ...rawData[states['Baden-Württemberg']],
-    }),
-    'Sachsen-Anhalt': new StateCasesDto({
-      ...rawData[states['Sachsen-Anhalt']],
-    }),
-    'Mecklenburg-Vorpommern': new StateCasesDto({
-      ...rawData[states['Mecklenburg-Vorpommern']],
-    }),
-  });
+  const mapped: Record<keyof typeof states, StateCasesDto> = {} as Record<
+    keyof typeof states,
+    StateCasesDto
+  >;
 
+  for (const [state] of Object.entries(states)) {
+    mapped[state] = new StateCasesDto({
+      ...rawData[states[state]],
+      stateName: state,
+    });
+  }
+  const response = new GermanyCasesDTO(mapped);
   return response;
 };
 
@@ -115,39 +96,18 @@ export const casesResponseToStateDeathsDTO = ({
 export const casesResponseToGermanyDeathsDTO = (
   rawData: RawCovidApiResponseType,
 ) => {
-  const response = new GermanyDeathsDTO({
-    Bayern: new StateDeathsDTO({ ...rawData[states.Bayern] }),
-    Berlin: new StateDeathsDTO({ ...rawData[states.Berlin] }),
-    Brandenburg: new StateDeathsDTO({
-      ...rawData[states.Brandenburg],
-    }),
-    Bremen: new StateDeathsDTO({ ...rawData[states.Bremen] }),
-    Hamburg: new StateDeathsDTO({ ...rawData[states.Hamburg] }),
-    Hessen: new StateDeathsDTO({ ...rawData[states.Hessen] }),
-    Niedersachsen: new StateDeathsDTO({ ...rawData[states.Niedersachsen] }),
-    Saarland: new StateDeathsDTO({ ...rawData[states.Saarland] }),
-    Sachsen: new StateDeathsDTO({ ...rawData[states.Sachsen] }),
-    Thüringen: new StateDeathsDTO({ ...rawData[states.Thüringen] }),
-    'Nordrhein-Westfalen': new StateDeathsDTO({
-      ...rawData[states['Nordrhein-Westfalen']],
-    }),
-    'Schleswig-Holstein': new StateDeathsDTO({
-      ...rawData[states['Schleswig-Holstein']],
-    }),
-    'Rheinland-Pfalz': new StateDeathsDTO({
-      ...rawData[states['Rheinland-Pfalz']],
-    }),
-    'Baden-Württemberg': new StateDeathsDTO({
-      ...rawData[states['Baden-Württemberg']],
-    }),
-    'Sachsen-Anhalt': new StateDeathsDTO({
-      ...rawData[states['Sachsen-Anhalt']],
-    }),
-    'Mecklenburg-Vorpommern': new StateDeathsDTO({
-      ...rawData[states['Mecklenburg-Vorpommern']],
-    }),
-  });
+  const mapped: Record<keyof typeof states, StateDeathsDTO> = {} as Record<
+    keyof typeof states,
+    StateDeathsDTO
+  >;
 
+  for (const [state] of Object.entries(states)) {
+    mapped[state] = new StateDeathsDTO({
+      ...rawData[states[state]],
+      stateName: state,
+    });
+  }
+  const response = new GermanyDeathsDTO(mapped);
   return response;
 };
 
@@ -174,39 +134,18 @@ export const latestCasesResponseToLatestCasesForStateDTO = ({
 export const latestCasesResponseToLatestCasesForGermanyDTO = (
   rawData: RawCovidApiResponseType,
 ): LatestGermanyCasesDTO => {
-  const response = new LatestGermanyCasesDTO({
-    Bayern: new LatestStateCasesDTO({ ...rawData[states.Bayern] }),
-    Berlin: new LatestStateCasesDTO({ ...rawData[states.Berlin] }),
-    Brandenburg: new LatestStateCasesDTO({ ...rawData[states.Brandenburg] }),
-    Bremen: new LatestStateCasesDTO({ ...rawData[states.Bremen] }),
-    Hamburg: new LatestStateCasesDTO({ ...rawData[states.Hamburg] }),
-    Hessen: new LatestStateCasesDTO({ ...rawData[states.Hessen] }),
-    Niedersachsen: new LatestStateCasesDTO({
-      ...rawData[states.Niedersachsen],
-    }),
-    Saarland: new LatestStateCasesDTO({ ...rawData[states.Saarland] }),
-    Sachsen: new LatestStateCasesDTO({ ...rawData[states.Sachsen] }),
-    Thüringen: new LatestStateCasesDTO({ ...rawData[states.Thüringen] }),
-    'Nordrhein-Westfalen': new LatestStateCasesDTO({
-      ...rawData[states['Nordrhein-Westfalen']],
-    }),
-    'Schleswig-Holstein': new LatestStateCasesDTO({
-      ...rawData[states['Schleswig-Holstein']],
-    }),
-    'Rheinland-Pfalz': new LatestStateCasesDTO({
-      ...rawData[states['Rheinland-Pfalz']],
-    }),
-    'Baden-Württemberg': new LatestStateCasesDTO({
-      ...rawData[states['Baden-Württemberg']],
-    }),
-    'Sachsen-Anhalt': new LatestStateCasesDTO({
-      ...rawData[states['Sachsen-Anhalt']],
-    }),
-    'Mecklenburg-Vorpommern': new LatestStateCasesDTO({
-      ...rawData[states['Mecklenburg-Vorpommern']],
-    }),
-  });
+  const mapped: Record<keyof typeof states, LatestStateCasesDTO> = {} as Record<
+    keyof typeof states,
+    LatestStateCasesDTO
+  >;
 
+  for (const [state] of Object.entries(states)) {
+    mapped[state] = new LatestStateCasesDTO({
+      ...rawData[states[state]],
+      stateName: state,
+    });
+  }
+  const response = new LatestGermanyCasesDTO(mapped);
   return response;
 };
 
@@ -233,37 +172,17 @@ export const latestDeathsResponseToLatestDeathsForStateDTO = ({
 export const latestDeathsResponseToLatestDeathsForGermanyDTO = (
   rawData: RawCovidApiResponseType,
 ): LatestGermanyDeathsDTO => {
-  const response = new LatestGermanyDeathsDTO({
-    Bayern: new LatestStateDeathsDTO({ ...rawData[states.Bayern] }),
-    Berlin: new LatestStateDeathsDTO({ ...rawData[states.Berlin] }),
-    Brandenburg: new LatestStateDeathsDTO({ ...rawData[states.Brandenburg] }),
-    Bremen: new LatestStateDeathsDTO({ ...rawData[states.Bremen] }),
-    Hamburg: new LatestStateDeathsDTO({ ...rawData[states.Hamburg] }),
-    Hessen: new LatestStateDeathsDTO({ ...rawData[states.Hessen] }),
-    Niedersachsen: new LatestStateDeathsDTO({
-      ...rawData[states.Niedersachsen],
-    }),
-    Saarland: new LatestStateDeathsDTO({ ...rawData[states.Saarland] }),
-    Sachsen: new LatestStateDeathsDTO({ ...rawData[states.Sachsen] }),
-    Thüringen: new LatestStateDeathsDTO({ ...rawData[states.Thüringen] }),
-    'Nordrhein-Westfalen': new LatestStateDeathsDTO({
-      ...rawData[states['Nordrhein-Westfalen']],
-    }),
-    'Schleswig-Holstein': new LatestStateDeathsDTO({
-      ...rawData[states['Schleswig-Holstein']],
-    }),
-    'Rheinland-Pfalz': new LatestStateDeathsDTO({
-      ...rawData[states['Rheinland-Pfalz']],
-    }),
-    'Baden-Württemberg': new LatestStateDeathsDTO({
-      ...rawData[states['Baden-Württemberg']],
-    }),
-    'Sachsen-Anhalt': new LatestStateDeathsDTO({
-      ...rawData[states['Sachsen-Anhalt']],
-    }),
-    'Mecklenburg-Vorpommern': new LatestStateDeathsDTO({
-      ...rawData[states['Mecklenburg-Vorpommern']],
-    }),
-  });
+  const mapped: Record<keyof typeof states, LatestStateDeathsDTO> =
+    {} as Record<keyof typeof states, LatestStateDeathsDTO>;
+
+  for (const [state] of Object.entries(states)) {
+    mapped[state] = new LatestStateDeathsDTO({
+      ...rawData[states[state]],
+      stateName: state,
+    });
+  }
+
+  const response = new LatestGermanyDeathsDTO(mapped);
+
   return response;
 };

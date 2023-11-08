@@ -46,7 +46,6 @@ __decorate([
     (0, swagger_1.ApiOkResponse)({
         description: 'All recorded deaths for a given country',
         type: GermanyDeathsDTO_1.GermanyDeathsDTO,
-        isArray: false,
     }),
     __param(0, (0, common_1.Param)('country', CountryValidationPipe_1.CountryValidationPipe)),
     __metadata("design:type", Function),
@@ -58,7 +57,6 @@ __decorate([
     (0, swagger_1.ApiOkResponse)({
         description: 'All recorded deaths by a given state and country',
         type: StateDeathsDTO_1.StateDeathsDTO,
-        isArray: false,
     }),
     __param(0, (0, common_1.Param)('country', CountryValidationPipe_1.CountryValidationPipe)),
     __param(1, (0, common_1.Param)('state', StateParamValidationPipe_1.StateParamValidationPipe)),
@@ -71,7 +69,6 @@ __decorate([
     (0, swagger_1.ApiOkResponse)({
         description: 'Latest deaths for a given country for a given number of days',
         type: LatestGermanyDeathsDTO_1.LatestGermanyDeathsDTO,
-        isArray: false,
     }),
     __param(0, (0, common_1.Param)('country', CountryValidationPipe_1.CountryValidationPipe)),
     __param(1, (0, common_1.Param)('dayRange', DayRangeValidationPipe_1.DayRangeValidationPipe)),
@@ -84,7 +81,6 @@ __decorate([
     (0, swagger_1.ApiOkResponse)({
         description: 'Records for deaths by state and country for a given number of days',
         type: LatestStateDeathsDTO_1.LatestStateDeathsDTO,
-        isArray: false,
     }),
     __param(0, (0, common_1.Param)('country', CountryValidationPipe_1.CountryValidationPipe)),
     __param(1, (0, common_1.Param)('state', StateParamValidationPipe_1.StateParamValidationPipe)),

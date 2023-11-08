@@ -1,4 +1,3 @@
-import React from "react";
 import { components } from "../../../generated/schema";
 
 const CaseStateTile = ({
@@ -6,7 +5,14 @@ const CaseStateTile = ({
 }: {
   data: components["schemas"]["StateCasesDto"];
 }) => {
-  return <div>DeathStateTile</div>;
+  return (
+    <div>
+      <p>{data.stateName}</p>
+      <p>Total Cases: {data.cases}</p>
+      <p>Cases Per 100k: {data.casesPer100k}</p>
+      <p>Population {data.population}</p>
+    </div>
+  );
 };
 
 export default CaseStateTile;

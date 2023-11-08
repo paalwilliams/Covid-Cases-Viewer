@@ -17,7 +17,6 @@ export class CasesController {
   @ApiOkResponse({
     description: 'All recorded cases for a given country',
     type: GermanyCasesDTO,
-    isArray: false,
   })
   async getCasesForGermany(
     @Param('country', CountryValidationPipe) _country: string,
@@ -29,7 +28,6 @@ export class CasesController {
   @ApiOkResponse({
     description: 'All recorded cases for a given state',
     type: StateCasesDto,
-    isArray: false,
   })
   async getByState(
     @Param('state', StateParamValidationPipe) state: string,
@@ -42,7 +40,6 @@ export class CasesController {
   @ApiOkResponse({
     description: 'Latest recorded cases for a given state',
     type: LatestGermanyCasesDTO,
-    isArray: false,
   })
   async getLatestCasesForGermanyDayRange(
     @Param('dayRange', DayRangeValidationPipe) dayRange: number,
@@ -55,7 +52,6 @@ export class CasesController {
   @ApiOkResponse({
     description: 'Latest recorded cases for a given state and day range',
     type: LatestStateCasesDTO,
-    isArray: false,
   })
   async getLatestCasesForStateDayRange(
     @Param('state', StateParamValidationPipe) state: string,

@@ -99,7 +99,7 @@ export interface components {
       weekIncidence: number;
       casesPer100k: number;
       delta: Record<string, never>;
-      hospitaliations: Record<string, never>;
+      hospitalization: Record<string, never>;
     };
     GermanyCasesDTO: {
       Bayern: components["schemas"]["StateCasesDto"];

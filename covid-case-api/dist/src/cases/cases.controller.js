@@ -46,7 +46,6 @@ __decorate([
     (0, swagger_1.ApiOkResponse)({
         description: 'All recorded cases for a given country',
         type: GermanyCasesDTO_1.GermanyCasesDTO,
-        isArray: false,
     }),
     __param(0, (0, common_1.Param)('country', CountryValidationPipe_1.CountryValidationPipe)),
     __metadata("design:type", Function),
@@ -58,7 +57,6 @@ __decorate([
     (0, swagger_1.ApiOkResponse)({
         description: 'All recorded cases for a given state',
         type: StateCasesDTO_1.StateCasesDto,
-        isArray: false,
     }),
     __param(0, (0, common_1.Param)('state', StateParamValidationPipe_1.StateParamValidationPipe)),
     __param(1, (0, common_1.Param)('country', CountryValidationPipe_1.CountryValidationPipe)),
@@ -71,7 +69,6 @@ __decorate([
     (0, swagger_1.ApiOkResponse)({
         description: 'Latest recorded cases for a given state',
         type: LatestGermanyCasesDTO_1.LatestGermanyCasesDTO,
-        isArray: false,
     }),
     __param(0, (0, common_1.Param)('dayRange', DayRangeValidationPipe_1.DayRangeValidationPipe)),
     __param(1, (0, common_1.Param)('country', CountryValidationPipe_1.CountryValidationPipe)),
@@ -84,7 +81,6 @@ __decorate([
     (0, swagger_1.ApiOkResponse)({
         description: 'Latest recorded cases for a given state and day range',
         type: LatestStateCasesDTO_1.LatestStateCasesDTO,
-        isArray: false,
     }),
     __param(0, (0, common_1.Param)('state', StateParamValidationPipe_1.StateParamValidationPipe)),
     __param(1, (0, common_1.Param)('dayRange', DayRangeValidationPipe_1.DayRangeValidationPipe)),

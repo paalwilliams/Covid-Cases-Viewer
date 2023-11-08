@@ -1,4 +1,4 @@
-import { HealtcheckResponseDTO } from 'src/types';
+import { HealthcheckResponseDTO } from 'src/types';
 export declare class HealthcheckService {
-    getHealthcheckData(): HealtcheckResponseDTO;
+    getHealthcheckData(): HealthcheckResponseDTO;
 }

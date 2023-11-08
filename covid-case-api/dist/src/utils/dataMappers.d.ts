@@ -7,14 +7,14 @@ import { LatestStateDeathsDTO } from 'src/dto/LatestStateDeathsDTO';
 import { StateCasesDto } from 'src/dto/StateCasesDTO';
 import { StateDeathsDTO } from 'src/dto/StateDeathsDTO';
 import { LatestStateCasesHistory, LatestStateDeathsHistory, RawCovidApiResponseType } from 'src/types';
-export declare const casesResponseToStateCasesDTO: ({ abbreviation, cases, recovered, casesPer100k, casesPerWeek, delta, hospitaliations, population, stateName, weekIncidence, }: {
+export declare const casesResponseToStateCasesDTO: ({ abbreviation, cases, recovered, casesPer100k, casesPerWeek, delta, hospitalization, population, stateName, weekIncidence, }: {
     abbreviation: string;
     cases: string;
     recovered: string;
     casesPer100k: string;
     casesPerWeek: string;
     delta: string;
-    hospitaliations: string;
+    hospitalization: string;
     population: string;
     stateName: string;
     weekIncidence: string;

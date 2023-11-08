@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.StateCasesDto = void 0;
 const swagger_1 = require("@nestjs/swagger");
 class StateCasesDto {
-    constructor({ stateName, abbreviation, population, cases, casesPerWeek, weekIncidence, casesPer100k, delta, recovered, hospitaliations, }) {
+    constructor({ stateName, abbreviation, population, cases, casesPerWeek, weekIncidence, casesPer100k, delta, recovered, hospitalization, }) {
         this.stateName = stateName;
         this.abbreviation = abbreviation;
         this.population = population;
@@ -26,7 +26,7 @@ class StateCasesDto {
             cases: delta.cases,
             weekIncidence: delta.weekIncidence,
         };
-        this.hospitaliations = hospitaliations;
+        this.hospitalization = hospitalization;
     }
 }
 exports.StateCasesDto = StateCasesDto;
@@ -69,5 +69,5 @@ __decorate([
 __decorate([
     (0, swagger_1.ApiProperty)(),
     __metadata("design:type", Object)
-], StateCasesDto.prototype, "hospitaliations", void 0);
+], StateCasesDto.prototype, "hospitalization", void 0);
 //# sourceMappingURL=StateCasesDTO.js.map

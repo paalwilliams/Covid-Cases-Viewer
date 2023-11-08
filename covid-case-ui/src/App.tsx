@@ -18,24 +18,11 @@ function App() {
         {
           path: "/deaths",
           element: <Deaths />,
-
-          children: [
-            {
-              path: "latest",
-              element: <p>latest deaths</p>,
-            },
-          ],
         },
         {
           path: "/cases",
           element: <Cases />,
           errorElement: <p>error</p>,
-          children: [
-            {
-              path: "latest",
-              element: <p>latest cases</p>,
-            },
-          ],
         },
       ],
     },
