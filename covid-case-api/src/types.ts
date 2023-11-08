@@ -1,4 +1,4 @@
-import { ApiProperty, ApiResponse } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 import { LatestStateCasesDTO } from './dto/LatestStateCasesDTO';
 import { LatestStateDeathsDTO } from './dto/LatestStateDeathsDTO';
 import { StateCasesDto } from './dto/StateCasesDTO';

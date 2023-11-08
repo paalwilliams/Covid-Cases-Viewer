@@ -15,7 +15,7 @@ const LatestStateCasesTile = ({
             return (
               <>
                 <p>Date: {new Date(value.date).toDateString()}</p>
-                <p>Cases: {value.deaths}</p>
+                <p>Deaths: {value.deaths}</p>
               </>
             );
           })

@@ -1,8 +1,9 @@
 import { ReactNode } from "react";
 import ResponsiveHeader from "../components/layout/Header/Header";
 
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Toolbar from "../components/layout/Toolbar/Toolbar";
+import Home from "./Home";
 const Layout = ({
   children,
   setShouldShowLatest,
@@ -16,6 +17,8 @@ const Layout = ({
   range: number;
   setRange: React.Dispatch<React.SetStateAction<number>>;
 }) => {
+  const { pathname } = useLocation();
+
   return (
     <>
       <ResponsiveHeader />
@@ -28,7 +31,7 @@ const Layout = ({
         }}
         onCheckboxChange={() => setShouldShowLatest(!shouldShowLatest)}
       />
-      <Outlet />
+      {pathname === "/" ? <Home /> : <Outlet />}
     </>
   );
 };

@@ -19,12 +19,14 @@ function App() {
     {
       path: "/",
       element: (
-        <Layout
-          range={range}
-          setRange={setRange}
-          setShouldShowLatest={setShouldShowLatest}
-          shouldShowLatest={shouldShowLatest}
-        />
+        <>
+          <Layout
+            range={range}
+            setRange={setRange}
+            setShouldShowLatest={setShouldShowLatest}
+            shouldShowLatest={shouldShowLatest}
+          />
+        </>
       ),
       errorElement: <p>error</p>,
       children: [
