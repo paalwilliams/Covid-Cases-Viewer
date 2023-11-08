@@ -7,15 +7,17 @@ The application consists of a React application, as well as a backend API using 
 ## Running the Application
 
 ```
+$ cd covid-case-api
+$ npm install
+$ npm run start:dev
+
+
+<!-- In a separate terminal window -->
+
 $ cd covid-case-ui
 $ npm install
 $ npm run start
 
-<!-- In a separate terminal window -->
-
-$ cd covid-case-api
-$ npm install
-$ npm run start:dev
 ```
 
 The API runs by default on port 3000, and the UI will run on port 3001.

@@ -25,10 +25,6 @@ const StateTile = ({
         stateData: components["schemas"]["StateDeathsDTO"];
       }
     | {
-        variant: "deaths-latest";
-        stateData: components["schemas"]["LatestStateDeathsDTO"];
-      }
-    | {
         variant: "state-deaths-latest";
         stateData: components["schemas"]["LatestStateDeathsDTO"];
       }
