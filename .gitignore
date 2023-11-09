@@ -1,6 +1,8 @@
 # compiled output
 /*/dist
 /*/node_modules
+/*/.pnp
+/*.pnp.js
 
 # Logs
 logs
@@ -10,9 +12,6 @@ pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
-
-# OS
-.DS_Store
 
 # Tests
 /coverage
@@ -33,3 +32,20 @@ lerna-debug.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# dependencies
+/node_modules
+
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
